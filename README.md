@@ -10,3 +10,6 @@ ansible-playbook -i ansible_hosts bacula.yml<br>
 以下のIPアドレスは環境に応じて変更してください。<br>
 ansible_hosts<br>
 roles/bacula/vars/main.yml
+
+詳しくは以下をご参照ください。<br>
+http://qiita.com/ksawada1979/items/acd844c8caa30065aca3
