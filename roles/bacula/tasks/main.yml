@@ -10,6 +10,10 @@
         - mariadb-server
         - MySQL-python
         - libselinux-python
+        - wget
+
+    - name: Bacula7 Repository Get
+      command: wget -P /etc/yum.repos.d/ https://copr.fedorainfracloud.org/coprs/slaanesh/Bacula/repo/epel-7/slaanesh-Bacula-epel-7.repo
 
     - name: Start and Enable mysql
       service: name=mariadb state=started enabled=yes
