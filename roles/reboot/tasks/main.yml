@@ -1,0 +1,13 @@
+---
+
+    - name: Server reboot
+      command: reboot
+
+    - name: wait for SSH port down
+      local_action: wait_for host={{ inventory_hostname }} port=22 state=stopped
+      sudo: false
+
+    - name: wait for SSH port up
+      wait_for: host={{ inventory_hostname }} port=22 state=started delay=60
+      delegate_to: 127.0.0.1
+      sudo: false

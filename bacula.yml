@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+  user: root
+  sudo: yes
+
+  roles:
+    - ntp
+    - timezone
+    - bacula
+    - reboot
