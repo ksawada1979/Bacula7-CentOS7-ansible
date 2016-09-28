@@ -13,7 +13,6 @@
         - mariadb-server
         - MySQL-python
         - libselinux-python
-        - wget
 
     - name: Start and Enable mysql
       service: name=mariadb state=started enabled=yes
