@@ -98,3 +98,6 @@
     - name: Start and Enable bacula
       service: name={{ item }} state=started enabled=yes
       with_items: conf_name
+
+    - name: DB Command Change
+      command: alternatives --set libbaccats.so /usr/lib64/libbaccats-mysql.so
