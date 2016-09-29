@@ -1,0 +1,16 @@
+---
+
+    - name: DRBD9 Repository Get
+      apt_repository: repo='ppa:linbit/linbit-drbd9-stack'
+
+    - name: Install Packages
+      apt: name={{ item }} state=latest update_cache=yes
+      with_items:
+        - drbd-utils
+        - python-drbdmanage
+        - drbd-dkms
+        - lvm2
+
+    - name: PV Create
+      lvg:  vg=vg.services pvs=/dev/sdb1
+
