@@ -1,8 +1,8 @@
 ---
     - name: Install Packages
-      apt: name={{ item }} state=latest
+      yum: name={{ item }} state=latest
       with_items:
         - ntp
 
     - name: Start and Enable ntp
-      service: name=ntp state=started enabled=yes
+      service: name=ntpd state=started enabled=yes

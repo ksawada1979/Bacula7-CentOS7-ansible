@@ -7,4 +7,5 @@
   roles:
     - ntp
     - timezone
-    - drbd9
+    - bacula
+    - reboot
