@@ -64,39 +64,57 @@
         dest='/etc/bacula/{{ item }}.conf'
         regexp='@@SD_PASSWORD@@'
         replace='bacula'
-      with_items: conf_name
+      with_items:
+        - bacula-dir
+        - bacula-sd
+        - bacula-fd
 
     - name: FD Default Password Change
       replace:
         dest='/etc/bacula/{{ item }}.conf'
         regexp='@@FD_PASSWORD@@'
         replace='bacula'
-      with_items: conf_name
+      with_items:
+        - bacula-dir
+        - bacula-sd
+        - bacula-fd
 
     - name: MON DIR Default Password Change
       replace:
         dest='/etc/bacula/{{ item }}.conf'
         regexp='@@MON_DIR_PASSWORD@@'
         replace='bacula'
-      with_items: conf_name
+      with_items:
+        - bacula-dir
+        - bacula-sd
+        - bacula-fd
 
     - name: MON SD Default Password Change
       replace:
         dest='/etc/bacula/{{ item }}.conf'
         regexp='@@MON_SD_PASSWORD@@'
         replace='bacula'
-      with_items: conf_name
+      with_items:
+        - bacula-dir
+        - bacula-sd
+        - bacula-fd
 
     - name: MON FD Default Password Change
       replace:
         dest='/etc/bacula/{{ item }}.conf'
         regexp='@@MON_FD_PASSWORD@@'
         replace='bacula'
-      with_items: conf_name
+      with_items:
+        - bacula-dir
+        - bacula-sd
+        - bacula-fd
 
     - name: Start and Enable bacula
       service: name={{ item }} state=started enabled=yes
-      with_items: conf_name
+      with_items:
+        - bacula-dir
+        - bacula-sd
+        - bacula-fd
 
     - name: DB Command Change
       command: alternatives --set libbaccats.so /usr/lib64/libbaccats-mysql.so
